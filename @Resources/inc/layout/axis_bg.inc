@@ -193,22 +193,6 @@
  Text                             = nothing#CRLF#0, 0
  Group                            = #substrate#
  Hidden                           = 1
-
-[animation.ArcGrow]
- Measure                          = PLUGIN
- Plugin                           = ActionTimer
- DynamicVariables                 = 1
- 
- ActionList1                      = Repeat ArcGrow, 4, 100
- ArcGrow                          = [!SetVariable Arc1Angle "(Clamp(#Arc1Angle#+5,0,90))"][!SetVariable Arc2Angle "(Clamp(#Arc1Angle#+5,0,90))"][!Update]
- ActionList2                      = Repeat ArcDecay, 4, 100
- ArcDecay                         = [!SetVariable Arc1Angle "(Clamp(#Arc1Angle#-5,0,90))"][!SetVariable Arc2Angle "(Clamp(#Arc1Angle#-5,0,90))"][!Update]
- ActionList3                      = Repeat Arc3GrowLine, 1, 46 
- Arc3GrowLine                     = [!SetVariable Arc3EndX "(Clamp(#Arc3EndX#-20,220,900))"][!SetVariable Arc3EndY "(Clamp(#Arc3EndY#+20,0,680))"][!SetVariable Arc3ProgressRadiusX "(Clamp(#Arc3ProgressRadiusX# - 920,230,6900))"][!SetVariable Arc3ProgressRadiusY "(Clamp(#Arc3ProgressRadiusY# - 920,230,6900))"][!Update]
- ;Arc3GrowRadius                   = [!SetVariable Arc3ProgressRadiusX "(Clamp(#Arc3ProgressRadiusX# - 920,230,6900))"][!SetVariable Arc3ProgressRadiusY "(Clamp(#Arc3ProgressRadiusY# - 920,230,6900))"][!Update]
- ActionList4                      = Repeat Arc3DecayRadius, 1, 50 
- Arc3DecayRadius                  = [!SetVariable Arc3ProgressRadiusX "(Clamp(#Arc3ProgressRadiusX# + 1940,230,6900))"][!SetVariable Arc3ProgressRadiusY "(Clamp(#Arc3ProgressRadiusY# + 1940,230,6900))"][!SetVariable Arc3EndX "(Clamp(#Arc3EndX#+20,0,450))"][!SetVariable Arc3EndY "(Clamp(#Arc3EndY#-20,450,900))"][!Update]
- ;Arc3DecayLine                    = [!SetVariable Arc3EndX "(Clamp(#Arc3EndX#+20,0,450))"][!SetVariable Arc3EndY "(Clamp(#Arc3EndY#-20,450,900))"][!Update]
  
 [shape.arc1_CPU]
  Meter                            = Shape

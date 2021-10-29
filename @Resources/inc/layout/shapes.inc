@@ -26,21 +26,23 @@
  MainDash1                        = 0
 
  ArcArcLeavesStrokeColor          = 255,50,255,255
- ArcLeavesStrokeWidth             = 1
+ ArcLeavesStrokeWidth             = 0.5
 
 [shape.round_middle]
  Meter                            = Shape
  X                                = (#X_Axis# + #MainArcRadius#)
  Y                                = (#Y_Axis# + #MainArcRadius#)
  Shape                            = Rectangle -#MainArcRadius#,-#MainArcRadius#,(2*#MainArcRadius#),(2*#MainArcRadius#),(2*#MainArcRadius#) | Extend MyModifiers1
- MyModifiers1                     = Fill Color 50,50,50,20 | StrokeWidth 4 | Stroke Color 46,115,31,1
+ MyModifiers1                     = Fill Color 50,50,50,1 | StrokeWidth 0 | Stroke Color 46,115,31,111
  DynamicVariables                 = 1
  ;MouseOverAction                  = [!CommandMeasure animation.ArcGrow "Stop 2"][!CommandMeasure animation.ArcGrow "Execute 1"][!CommandMeasure animation.ArcGrow "Stop 4"][!CommandMeasure animation.ArcGrow "Execute 3"]
  ;MouseLeaveAction                 = [!CommandMeasure animation.ArcGrow "Stop 1"][!CommandMeasure animation.ArcGrow "Execute 2"][!CommandMeasure animation.ArcGrow "Stop 3"][!CommandMeasure animation.ArcGrow "Execute 4"]
- MouseScrollUpAction              = [!SetVariable MainArcRadius "(#MainArcRadius# + 5)"][!Update]
- MouseScrollDownAction            = [!SetVariable MainArcRadius "(#MainArcRadius# - 5)"][!Update]
- MouseOverAction                  = [!CommandMeasure animation.DASH "Stop 2"][!CommandMeasure animation.DASH "Execute 1"]
- MouseLeaveAction                 = [!CommandMeasure animation.DASH "Stop 1"][!CommandMeasure animation.DASH "Execute 2"]
+ ;MouseScrollUpAction              = [!SetVariable MainArcRadius "(#MainArcRadius# + 5)"][!Update]
+ ;MouseScrollDownAction            = [!SetVariable MainArcRadius "(#MainArcRadius# - 5)"][!Update]
+ MouseScrollUpAction              = [!CommandMeasure animation.FRAME_TWO_TO_FRAME_ONE "Stop 1"][!CommandMeasure animation.FRAME_ONE_TO_FRAME_TWO "Execute 1"]
+ MouseScrollDownAction            = [!CommandMeasure animation.FRAME_ONE_TO_FRAME_TWO "Stop 1"][!CommandMeasure animation.FRAME_TWO_TO_FRAME_ONE "Execute 1"]
+ ;MouseOverAction                  = [!CommandMeasure animation.DASH "Stop 2"][!CommandMeasure animation.DASH "Execute 1"]
+ ;MouseLeaveAction                 = [!CommandMeasure animation.DASH "Stop 1"][!CommandMeasure animation.DASH "Execute 2"]
  MiddleMouseUpAction              = [!ToggleMeterGroup #substrate#]
 
 [shape.arc_left]
